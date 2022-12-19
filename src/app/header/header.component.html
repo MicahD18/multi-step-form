@@ -1,0 +1,56 @@
+<div class="h-[100%] flex flex-row justify-between">
+  <mat-card class="w-[25vw] h-[98%] bg-indigo-600">
+    <div class="flex" *ngFor="let step of steps">
+      <mat-card-title class="flex-initial text-center px-2 py-2 m-2"
+        ><button
+          (click)="goToStep(step.id)"
+          [ngStyle]="{'background-color': step.isActive ? 'orange' : 'transparent'}"
+          class="w-[40px] h-[40px] bg-none border-2 border-white rounded-full text-white text-center leading-9 hover:bg-slate-200 transition duration-300"
+        >
+          {{ step.id }}
+        </button></mat-card-title
+      >
+      <div
+        class="flex-initial text-center py-0 m-2 text-start leading-tight mt-2 align-center"
+      >
+        <p class="text-slate-300">STEP {{ step.id }}</p>
+        <h3 class="text-white font-bold">{{ step.title }}</h3>
+      </div>
+    </div>
+  </mat-card>
+
+  <div>
+    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 1">
+      <app-info></app-info>
+    </mat-card>
+
+    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 2">
+      <app-plan></app-plan>
+    </mat-card>
+
+    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 3">
+      <app-addon></app-addon>
+    </mat-card>
+
+    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 4">
+      <app-summary></app-summary>
+    </mat-card>
+
+    <div class="flex justify-around">
+      <button
+        mat-raised-button
+        (click)="onPreviousStep()"
+        *ngIf="currentStep !== 1"
+      >
+        Go Back
+      </button>
+      <button mat-raised-button (click)="onNextStep()" *ngIf="currentStep !== 4">
+        Next Step
+      </button>
+
+      <button mat-raised-button *ngIf="currentStep === 4">
+        Confirm
+      </button>
+    </div>
+  </div>
+</div>

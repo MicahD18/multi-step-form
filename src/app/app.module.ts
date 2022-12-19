@@ -3,14 +3,42 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular Material
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+
+// Components
+import { HeaderComponent } from './header/header.component';
+import { InfoComponent } from './components/info/info.component';
+import { PlanComponent } from './components/plan/plan.component';
+import { AddonComponent } from './components/addon/addon.component';
+import { SummaryComponent } from './components/summary/summary.component';
+
+// Reactive Forms
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    InfoComponent,
+    PlanComponent,
+    AddonComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
