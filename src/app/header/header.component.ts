@@ -22,21 +22,24 @@ export class HeaderComponent implements OnInit {
     this.mapSteps(this.currentStep);
   }
 
-  onNextStep(): void {
-    this.currentStep += 1;
-
+  onInfoStep(step: number) {
+    this.currentStep = step;
     this.mapSteps(this.currentStep);
   }
 
-  onPreviousStep(): void {
-    this.currentStep -= 1;
+  // onNextStep(): void {
+  //   this.currentStep += 1;
 
-    this.mapSteps(this.currentStep);
-  }
+  //   this.mapSteps(this.currentStep);
+  // }
+
+  // onPreviousStep(): void {
+  //   this.currentStep -= 1;
+  //   this.mapSteps(this.currentStep);
+  // }
 
   goToStep(step: number): void {
     this.currentStep = step;
-
     this.mapSteps(step);
   }
 

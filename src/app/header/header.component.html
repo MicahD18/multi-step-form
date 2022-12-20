@@ -20,23 +20,14 @@
   </mat-card>
 
   <div>
-    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 1">
-      <app-info></app-info>
-    </mat-card>
+    <div class="w-[70vw] h-[80%]">
+      <app-info *ngIf="currentStep === 1" class="flex flex-col justify-center items-center" (step)="onInfoStep($event)"></app-info>
+      <app-plan *ngIf="currentStep === 2"></app-plan>
+      <app-addon *ngIf="currentStep === 3"></app-addon>
+      <app-summary *ngIf="currentStep === 4"></app-summary>
+    </div>
 
-    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 2">
-      <app-plan></app-plan>
-    </mat-card>
-
-    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 3">
-      <app-addon></app-addon>
-    </mat-card>
-
-    <mat-card class="w-[70vw] h-[75%] bg-indigo-600" *ngIf="currentStep === 4">
-      <app-summary></app-summary>
-    </mat-card>
-
-    <div class="flex justify-around">
+    <!-- <div class="flex justify-around">
       <button
         mat-raised-button
         (click)="onPreviousStep()"
@@ -51,6 +42,6 @@
       <button mat-raised-button *ngIf="currentStep === 4">
         Confirm
       </button>
-    </div>
+    </div> -->
   </div>
 </div>

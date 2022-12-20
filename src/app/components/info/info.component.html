@@ -1,5 +1,71 @@
-<mat-card class="h-[100%]">
-    <h1>Personal info</h1>
-    <p>Please provide your name, email address, and phone number.</p>
-    
+<mat-card class="mt-[15%] h-[65vh]">
+  <div class="leading-3">
+    <p class="text-4xl text-indigo-800 font-bold">Personal info</p>
+    <p class="text-gray-400 text-base">
+      Please provide your name, email address, and phone number.
+    </p>
+  </div>
+
+  <form
+    [formGroup]="infoForm"
+    class="flex flex-col justify-center items-start mt-[50px]"
+  >
+    <mat-label class="text-left text-base">Name</mat-label>
+    <div class="mt-2">
+      <input
+        matInput
+        formControlName="name"
+        placeholder="name"
+        class="border-2 border-gray border-solid w-[40vw] h-[50px] p-2 focus:outline-none focus:border-indigo-300 text-lg"
+      />
+    </div>
+    <mat-error *ngIf="name?.touched && name?.value === ''">
+      Name is required
+    </mat-error>
+    <mat-error *ngIf="name?.invalid && name?.value !== ''">
+      Name is invalid
+    </mat-error>
+
+    <mat-label class="mt-5 text-base">Email Address</mat-label>
+    <div class="mt-2">
+      <input
+        matInput
+        formControlName="email"
+        placeholder="email address"
+        class="border-2 border-gray border-solid w-[40vw] h-[50px] p-2 focus:outline-none focus:border-indigo-300 text-lg"
+      />
+    </div>
+    <mat-error *ngIf="email?.touched && email?.value === ''">
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="email?.invalid && email?.value !== ''">
+      Your email does not look right
+    </mat-error>
+
+    <mat-label class="mt-5 text-base">Phone Number</mat-label>
+    <div class="mt-2">
+      <input
+        matInput
+        formControlName="phone"
+        placeholder="e.g. 234-567-8902"
+        class="border-2 border-gray border-solid w-[40vw] h-[50px] p-2 focus:outline-none focus:border-indigo-300 text-lg"
+      />
+    </div>
+    <mat-error *ngIf="phone?.touched && phone?.value === ''">
+      Phone number is required
+    </mat-error>
+    <mat-error *ngIf="phone?.invalid && phone?.value !== ''">
+      Your phone number does not look right
+    </mat-error>
+  </form>
 </mat-card>
+
+<div class="mt-[25px]">
+  <button
+    mat-raised-button
+    [disabled]="infoForm.invalid"
+    (click)="onNextStep(2)"
+  >
+    Next Step
+  </button>
+</div>
