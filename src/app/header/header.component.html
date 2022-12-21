@@ -22,8 +22,8 @@
   <div>
     <div class="w-[70vw] h-[80%]">
       <app-info *ngIf="currentStep === 1" class="flex flex-col justify-center items-center" (step)="onInfoStep($event)"></app-info>
-      <app-plan *ngIf="currentStep === 2"></app-plan>
-      <app-addon *ngIf="currentStep === 3"></app-addon>
+      <app-plan *ngIf="currentStep === 2" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-plan>
+      <app-addon *ngIf="currentStep === 3" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-addon>
       <app-summary *ngIf="currentStep === 4"></app-summary>
     </div>
 

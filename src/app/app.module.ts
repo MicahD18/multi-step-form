@@ -10,6 +10,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // Components
 import { HeaderComponent } from './header/header.component';
@@ -39,6 +42,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     { id: 4, title: 'SUMMARY', isActive: false, isCompleted: false },
   ];
 
-  currentStep: number = 1;
+  currentStep: number = 3;
 
   constructor() {}
 
@@ -22,7 +22,17 @@ export class HeaderComponent implements OnInit {
     this.mapSteps(this.currentStep);
   }
 
+  onPrevStep(step: number) {
+    this.currentStep = step;
+    this.mapSteps(this.currentStep);
+  }
+
   onInfoStep(step: number) {
+    this.currentStep = step;
+    this.mapSteps(this.currentStep);
+  }
+
+  onPlanStep(step: number) {
     this.currentStep = step;
     this.mapSteps(this.currentStep);
   }
