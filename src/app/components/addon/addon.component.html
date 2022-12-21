@@ -1,18 +1,32 @@
 <mat-card class="mt-[15%] h-[65vh]">
-    
-  </mat-card>
-  
-  <div class="w-[100%] flex flex-row justify-evenly">
-    <div class="mt-[25px]">
-      <button mat-raised-button (click)="onPrevStep(2)">Go Back</button>
-    </div>
-  
-    <div class="mt-[25px]">
-      <button
-        mat-raised-button
-        (click)="onNextStep(4)"
-      >
-        Next Step
-      </button>
-    </div>
+  <div class="leading-3">
+    <p class="text-4xl text-indigo-800 font-bold">Pick add-ons</p>
+    <p class="text-gray-400 text-base">
+      Add-ons help enhance your gaming experience.
+    </p>
   </div>
+
+  <mat-card *ngFor="let addOn of addOns" class="leading-3 mt-5">
+    <div class="flex flex-row items-center justify-between">
+      <div class="flex items-center">
+        <mat-checkbox></mat-checkbox>
+        <div class="flex flex-col ml-10">
+          <p class="text-base font-bold">{{ addOn.name }}</p>
+          <p class="text-gray-400">{{ addOn.description }}</p>
+        </div>
+      </div>
+
+      <p>{{ addOn.price }}</p>
+    </div>
+  </mat-card>
+</mat-card>
+
+<div class="w-[100%] flex flex-row justify-evenly">
+  <div class="mt-[25px]">
+    <button mat-raised-button (click)="onPrevStep(2)">Go Back</button>
+  </div>
+
+  <div class="mt-[25px]">
+    <button mat-raised-button (click)="onNextStep(4)">Next Step</button>
+  </div>
+</div>
