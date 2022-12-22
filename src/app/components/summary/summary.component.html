@@ -1,1 +1,51 @@
-<p>summary works!</p>
+<mat-card class="mt-[15%] h-[50vh] w-[60vw]">
+  <div class="leading-3">
+    <p class="text-4xl text-indigo-800 font-bold">Finishing up</p>
+    <p class="text-gray-400 text-base">
+      Double check everything looks OK before confirming.
+    </p>
+  </div>
+
+  <mat-card class="bg-gray-100 h-[260px]">
+    <div class="flex flex-row justify-between items-center">
+      <div>
+        <p class="text-lg">Arcade (Monthly)</p>
+        <button mat-raised-button class="text-indigo-500" (click)="onPrevStep(2)">Change</button>
+      </div>
+      <p class="text-lg font-bold">$9/mo</p>
+    </div>
+
+    <div class="w-full bg-gray-400 p-[0.5px] mt-5"></div>
+
+    <div class="mt-5">
+        <div class="w-full flex flex-row justify-between items-center">
+            <p class="pl-5 text-base text-gray-500">Online service</p>
+            <p class="pr-5 text-base">+$1/mo</p>
+        </div>
+        <div class="w-full flex flex-row justify-between items-center">
+            <p class="pl-5 text-base text-gray-500">Larger storage</p>
+            <p class="pr-5 text-base">+$2/mo</p>
+        </div>
+        <div class="w-full flex flex-row justify-between items-center">
+            <p class="pl-5 text-base text-gray-500">Customizable Profile</p>
+            <p class="pr-5 text-base">+$2/mo</p>
+        </div>
+    </div>
+    
+  </mat-card>
+
+  <div class="flex flex-row mt-10 justify-between">
+    <p class="pl-5 text-base text-gray-500">Total (per month)</p>
+    <p class="pr-5 text-xl text-indigo-700 font-bold">+$12/mo</p>
+  </div>
+</mat-card>
+
+<div class="w-[100%] flex flex-row justify-evenly">
+  <div class="mt-[25px]">
+    <button mat-raised-button (click)="onPrevStep(3)">Go Back</button>
+  </div>
+
+  <div class="mt-[25px]">
+    <button mat-raised-button (click)="onNextStep(5)">Confirm</button>
+  </div>
+</div>

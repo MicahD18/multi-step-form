@@ -23,6 +23,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 
 // Reactive Forms
 import { ReactiveFormsModule } from '@angular/forms';
+import { ThanksComponent } from './components/thanks/thanks.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PlanComponent,
     AddonComponent,
     SummaryComponent,
+    ThanksComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,9 @@ export class HeaderComponent implements OnInit {
     { id: 4, title: 'SUMMARY', isActive: false, isCompleted: false },
   ];
 
-  currentStep: number = 3;
+  
+
+  currentStep: number = 4;
 
   constructor() {}
 

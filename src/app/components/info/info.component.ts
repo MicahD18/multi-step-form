@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-info',
@@ -27,6 +28,20 @@ export class InfoComponent implements OnInit {
         ],
       ],
     });
+
+    // checks for value change in local storage
+    const draft = localStorage.getItem('STEP_1');
+
+    // if value change, overwrite all values of form
+    if (draft) {
+      this.infoForm.setValue(JSON.parse(draft));
+    }
+
+    this.infoForm.valueChanges
+      .pipe(filter(() => this.infoForm.valid))
+      .subscribe((val) => {
+        localStorage.setItem('STEP_1', JSON.stringify(val));
+      });
   }
 
   get name() {

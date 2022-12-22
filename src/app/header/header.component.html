@@ -24,7 +24,8 @@
       <app-info *ngIf="currentStep === 1" class="flex flex-col justify-center items-center" (step)="onInfoStep($event)"></app-info>
       <app-plan *ngIf="currentStep === 2" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-plan>
       <app-addon *ngIf="currentStep === 3" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-addon>
-      <app-summary *ngIf="currentStep === 4"></app-summary>
+      <app-summary *ngIf="currentStep === 4" class="flex flex-col justify-center items-center" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-summary>
+      <app-thanks *ngIf="currentStep === 5"></app-thanks>
     </div>
 
     <!-- <div class="flex justify-around">
