@@ -6,31 +6,6 @@
     </p>
   </div>
 
-  <div class="w-[100%] h-[52%] flex flex-row justify-evenly mt-10">
-    <mat-card
-      class="w-[30%] cursor-pointer"
-      [ngStyle]="{
-        'background-color': plan.isActive ? '#DFDFFF' : 'transparent'
-      }"
-      *ngFor="let plan of plans"
-    >
-      <button (click)="goToPlan(plan.id)" class="w-[100%]">
-        <img
-          class="h-[50px] w-[50px]"
-          src="{{ plan.iconUrl }}"
-          alt="arcade-icon"
-        />
-        <div class="mt-[75px] text-left">
-          <p class="text-2xl text-indigo-800 font-bold">{{ plan.name }}</p>
-          <p class="text-gray-400 text-base leading-3">
-            {{ this.isMonthly ? plan.monthly : plan.yearly }}
-          </p>
-          <p>{{ this.isMonthly ? '' : '2 months free' }}</p>
-        </div>
-      </button>
-    </mat-card>
-  </div>
-
   <div class="mt-10 w-[100%]">
     <div class="mt-10 w-[100%] flex flex-row justify-center items-center">
       <div class="flex flex-row justify-evenly items-center">
@@ -45,6 +20,33 @@
       </div>
     </div>
   </div>
+
+  <div class="w-[100%] h-[52%] flex flex-row justify-evenly mt-10">
+    <mat-card
+      class="w-[30%] cursor-pointer"
+      [ngStyle]="{
+        'background-color': plan.isActive ? '#DFDFFF' : 'transparent'
+      }"
+      *ngFor="let plan of plans"
+    >
+      <button (click)="goToPlan(plan.id); emitData(plan.name, plan.monthlyPrice, plan.yearlyPrice, plan.monthlyPlan, plan.yearlyPlan)" class="w-[100%]">
+        <img
+          class="h-[50px] w-[50px]"
+          src="{{ plan.iconUrl }}"
+          alt="arcade-icon"
+        />
+        <div class="mt-[75px] text-left">
+          <p class="text-2xl text-indigo-800 font-bold">{{ plan.name }}</p>
+          <p class="text-gray-400 text-base leading-3">
+            ${{ this.isMonthly ? plan.monthlyPrice : plan.yearlyPrice }}
+          </p>
+          <p>{{ this.isMonthly ? '' : '2 months free' }}</p>
+        </div>
+      </button>
+    </mat-card>
+  </div>
+
+  
 </mat-card>
 
 <div class="w-[100%] flex flex-row justify-evenly">

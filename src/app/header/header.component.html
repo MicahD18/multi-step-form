@@ -21,10 +21,10 @@
 
   <div>
     <div class="w-[70vw] h-[80%]">
-      <app-info *ngIf="currentStep === 1" class="flex flex-col justify-center items-center" (step)="onInfoStep($event)"></app-info>
-      <app-plan *ngIf="currentStep === 2" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-plan>
-      <app-addon *ngIf="currentStep === 3" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-addon>
-      <app-summary *ngIf="currentStep === 4" class="flex flex-col justify-center items-center" (step)="onPlanStep($event)" (step)="onPrevStep($event)"></app-summary>
+      <app-info *ngIf="currentStep === 1" class="flex flex-col justify-center items-center" (step)="onNextStep($event)"></app-info>
+      <app-plan *ngIf="currentStep === 2" (step)="onNextStep($event)" (step)="onPrevStep($event)" (plan)="getPlan($event)" (monthlyPrice)="getMonthlyPrice($event)" (yearlyPrice)="getYearlyPrice($event)"  (monthly)="getMonthly($event)" (yearly)="getYearly($event)"></app-plan>
+      <app-addon *ngIf="currentStep === 3" (step)="onNextStep($event)" (step)="onPrevStep($event)"></app-addon>
+      <app-summary *ngIf="currentStep === 4" class="flex flex-col justify-center items-center" (step)="onNextStep($event)" (step)="onPrevStep($event)" [items]="summary"></app-summary>
       <app-thanks *ngIf="currentStep === 5"></app-thanks>
     </div>
 

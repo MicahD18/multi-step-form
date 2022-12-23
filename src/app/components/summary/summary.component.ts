@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-summary',
@@ -10,9 +10,12 @@ export class SummaryComponent implements OnInit {
 
   @Output() step = new EventEmitter<number>();
 
+  @Input() items: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.items);
   }
 
   onPrevStep(prevStep: number): void {

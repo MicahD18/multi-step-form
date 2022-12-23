@@ -2,7 +2,9 @@ export interface Plan {
     id: number;
     iconUrl: string;
     name: string;
-    monthly: string;
-    yearly: string;
+    monthlyPrice: number;
+    yearlyPrice: number;
+    monthlyPlan: string;
+    yearlyPlan: string;
     isActive: boolean;
 }

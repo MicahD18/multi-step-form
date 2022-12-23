@@ -9,6 +9,9 @@ import { AddOn } from 'src/app/models/add-on.model';
 export class AddonComponent implements OnInit {
   @Output() step = new EventEmitter<number>();
 
+  @Output() name = new EventEmitter<string>();
+  @Output() price = new EventEmitter<string>();
+
   addOns: AddOn[] = [
     {
       id: 1,
