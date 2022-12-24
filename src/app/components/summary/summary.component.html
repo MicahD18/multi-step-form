@@ -17,20 +17,34 @@
 
     <div class="w-full bg-gray-400 p-[0.5px] mt-5"></div>
 
-    <div class="mt-5" *ngFor="let addOn of items.addOns">
+    <div class="mt-5" *ngFor="let addOn of extras">
         <div class="w-full flex flex-row justify-between items-center">
             <p class="pl-5 text-base text-gray-500">{{addOn.name}}</p>
-            <p class="pr-5 text-base">+${{addOn.price}}/mo</p>
+            <p class="pr-5 text-base" *ngIf="item.monthly === ''">+${{addOn.price}}/yr</p>
+            <p class="pr-5 text-base" *ngIf="item.monthly !== ''">+${{addOn.price}}/mo</p>
         </div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div class="flex flex-row mt-10 justify-between" *ngIf="item.monthly !== ''">
+      <p class="pl-5 text-base text-gray-500">Total (per month)</p>
+      <p class="pr-5 text-xl text-indigo-700 font-bold">+$12/mo</p>
+    </div>
+
+    <!-- YEARLY -->
+    <div class="flex flex-row mt-10 justify-between" *ngIf="item.monthly === '' && item.price !== ''">
+      <p class="pl-5 text-base text-gray-500">Total (per year)</p>
+      <p class="pr-5 text-xl text-indigo-700 font-bold">+$50/yr</p>
+    </div>
+
+    <div class="flex flex-row mt-10 justify-between" *ngIf="item.price === '' && item.monthly === ''">
+      
     </div>
   </mat-card>
 
 
 
-  <div class="flex flex-row mt-10 justify-between">
-    <p class="pl-5 text-base text-gray-500">Total (per month)</p>
-    <p class="pr-5 text-xl text-indigo-700 font-bold">+$12/mo</p>
-  </div>
+  
 </mat-card>
 
 <div class="w-[100%] flex flex-row justify-evenly">

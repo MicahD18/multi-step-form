@@ -11,6 +11,8 @@ export class SummaryComponent implements OnInit {
   @Output() step = new EventEmitter<number>();
 
   @Input() items: any;
+  @Input() addOns: any;
+  @Input() extras: any;
 
   constructor() { }
 

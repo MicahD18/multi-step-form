@@ -21,30 +21,21 @@ export class HeaderComponent implements OnInit {
       plan: '',
       monthly: '',
       yearly: '',
-      addOns: [{ name: 'Online service', price: '1' }],
     },
   ];
 
+  addOns: any = [{ name: 'Online service', price: '1' }];
+
   currentStep: number = 4;
+
+  isMonthly!: boolean;
+
+  extrasArray!: any;
 
   constructor() {}
 
   ngOnInit(): void {
     this.mapSteps(this.currentStep);
-
-    // const draft = localStorage.getItem('summary');
-
-    // if (draft) {
-    //   this.summary.setValue(JSON.parse(draft));
-    // }
-
-    // this.summary.valueChanges
-    //   .pipe(map((item: any) => {
-    //     item.plan = this.plan;
-    //   }))
-    //   .subscribe((val: any) => {
-    //     localStorage.setItem('summary', JSON.stringify(val));
-    //   });
   }
 
   onPrevStep(step: number) {
@@ -106,5 +97,14 @@ export class HeaderComponent implements OnInit {
     this.summary.map((item: any) => {
       item.yearly = yearly;
     });
+  }
+
+  getCheckMonthly(checkMonthly: boolean) {
+    this.isMonthly = checkMonthly;
+  }
+
+  addExtras(extras: any) {
+    console.log(extras);
+    this.extrasArray = extras;
   }
 }

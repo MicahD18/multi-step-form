@@ -4,7 +4,9 @@
       <mat-card-title class="flex-initial text-center px-2 py-2 m-2"
         ><button
           (click)="goToStep(step.id)"
-          [ngStyle]="{'background-color': step.isActive ? 'orange' : 'transparent'}"
+          [ngStyle]="{
+            'background-color': step.isActive ? 'orange' : 'transparent'
+          }"
           class="w-[40px] h-[40px] bg-none border-2 border-white rounded-full text-white text-center leading-9 hover:bg-slate-200 transition duration-300"
         >
           {{ step.id }}
@@ -21,28 +23,38 @@
 
   <div>
     <div class="w-[70vw] h-[80%]">
-      <app-info *ngIf="currentStep === 1" class="flex flex-col justify-center items-center" (step)="onNextStep($event)"></app-info>
-      <app-plan *ngIf="currentStep === 2" (step)="onNextStep($event)" (step)="onPrevStep($event)" (plan)="getPlan($event)" (monthlyPrice)="getMonthlyPrice($event)" (yearlyPrice)="getYearlyPrice($event)"  (monthly)="getMonthly($event)" (yearly)="getYearly($event)"></app-plan>
-      <app-addon *ngIf="currentStep === 3" (step)="onNextStep($event)" (step)="onPrevStep($event)"></app-addon>
-      <app-summary *ngIf="currentStep === 4" class="flex flex-col justify-center items-center" (step)="onNextStep($event)" (step)="onPrevStep($event)" [items]="summary"></app-summary>
+      <app-info
+        *ngIf="currentStep === 1"
+        class="flex flex-col justify-center items-center"
+        (step)="onNextStep($event)"
+      ></app-info>
+      <app-plan
+        *ngIf="currentStep === 2"
+        (step)="onNextStep($event)"
+        (step)="onPrevStep($event)"
+        (plan)="getPlan($event)"
+        (monthlyPrice)="getMonthlyPrice($event)"
+        (yearlyPrice)="getYearlyPrice($event)"
+        (monthly)="getMonthly($event)"
+        (yearly)="getYearly($event)"
+        (checkMonthly)="getCheckMonthly($event)"
+      ></app-plan>
+      <app-addon
+        *ngIf="currentStep === 3"
+        (step)="onNextStep($event)"
+        (step)="onPrevStep($event)"
+        [monthly]="isMonthly"
+        (extras)="addExtras($event)"
+      ></app-addon>
+      <app-summary
+        *ngIf="currentStep === 4"
+        class="flex flex-col justify-center items-center"
+        (step)="onNextStep($event)"
+        (step)="onPrevStep($event)"
+        [items]="summary"
+        [extras]="extrasArray"
+      ></app-summary>
       <app-thanks *ngIf="currentStep === 5"></app-thanks>
     </div>
-
-    <!-- <div class="flex justify-around">
-      <button
-        mat-raised-button
-        (click)="onPreviousStep()"
-        *ngIf="currentStep !== 1"
-      >
-        Go Back
-      </button>
-      <button mat-raised-button (click)="onNextStep()" *ngIf="currentStep !== 4">
-        Next Step
-      </button>
-
-      <button mat-raised-button *ngIf="currentStep === 4">
-        Confirm
-      </button>
-    </div> -->
   </div>
 </div>

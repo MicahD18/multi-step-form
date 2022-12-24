@@ -16,6 +16,9 @@ export class PlanComponent implements OnInit {
   @Output() monthly = new EventEmitter<string>();
   @Output() yearly = new EventEmitter<string>();
 
+  // check if monthly is true or false for add-on component
+  @Output() checkMonthly = new EventEmitter<boolean>();
+
   plans: Plan[] = [
     {
       id: 1,
@@ -81,6 +84,7 @@ export class PlanComponent implements OnInit {
       this.monthly.emit(monthlyPlan);
       this.monthlyPrice.emit(monthlyPrice);
       this.plan.emit(name);
+      this.checkMonthly.emit(this.isMonthly);
       return;
     }
 
@@ -89,6 +93,7 @@ export class PlanComponent implements OnInit {
       this.yearly.emit(yearlyPlan);
       this.yearlyPrice.emit(yearlyPrice);
       this.plan.emit(name);
+      this.checkMonthly.emit(this.isMonthly);
       return;
     }
     
