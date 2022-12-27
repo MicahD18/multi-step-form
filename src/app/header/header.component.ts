@@ -24,9 +24,7 @@ export class HeaderComponent implements OnInit {
     },
   ];
 
-  addOns: any = [{ name: 'Online service', price: '1' }];
-
-  currentStep: number = 4;
+  currentStep: number = 1;
 
   isMonthly!: boolean;
 
@@ -82,18 +80,12 @@ export class HeaderComponent implements OnInit {
   }
 
   getMonthly(monthly: string) {
-    console.log(monthly);
-    
-
     this.summary.map((item: any) => {
       item.monthly = monthly;
     });
   }
 
   getYearly(yearly: string) {
-    console.log(yearly);
-    
-
     this.summary.map((item: any) => {
       item.yearly = yearly;
     });
@@ -104,7 +96,6 @@ export class HeaderComponent implements OnInit {
   }
 
   addExtras(extras: any) {
-    console.log(extras);
     this.extrasArray = extras;
   }
 }

@@ -1,4 +1,4 @@
-<div class="h-[100%] flex flex-row justify-between">
+<div class="h-[100%] flex flex-row justify-between" *ngIf="currentStep !== 5">
   <mat-card class="w-[25vw] h-[98%] bg-indigo-600">
     <div class="flex" *ngFor="let step of steps">
       <mat-card-title class="flex-initial text-center px-2 py-2 m-2"
@@ -54,7 +54,10 @@
         [items]="summary"
         [extras]="extrasArray"
       ></app-summary>
-      <app-thanks *ngIf="currentStep === 5"></app-thanks>
     </div>
   </div>
+</div>
+
+<div *ngIf="currentStep === 5">
+  <app-thanks class="flex flex-col justify-center items-center"></app-thanks>
 </div>

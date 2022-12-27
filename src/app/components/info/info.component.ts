@@ -12,6 +12,10 @@ export class InfoComponent implements OnInit {
 
   @Output() step = new EventEmitter<number>();
 
+  @Input() isConfirmed!: boolean;
+
+  @Input() localDraft!: string | null;
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -30,17 +34,27 @@ export class InfoComponent implements OnInit {
     });
 
     // checks for value change in local storage
-    const draft = localStorage.getItem('STEP_1');
+    this.localDraft = localStorage.getItem('STEP_1');
 
     // if value change, overwrite all values of form
-    if (draft) {
-      this.infoForm.setValue(JSON.parse(draft));
+    if (this.localDraft) {
+      this.infoForm.setValue(JSON.parse(this.localDraft));
     }
+
+    console.log(this.isConfirmed);
+    
 
     this.infoForm.valueChanges
       .pipe(filter(() => this.infoForm.valid))
       .subscribe((val) => {
         localStorage.setItem('STEP_1', JSON.stringify(val));
+
+        // if confirm clicked, set draft back to null
+        if (this.isConfirmed === true) {
+          console.log('removing...');
+          
+          localStorage.removeItem('STEP_1');
+        }
       });
   }
 
