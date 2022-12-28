@@ -51,6 +51,6 @@
   </div>
 
   <div class="mt-[25px]">
-    <button mat-raised-button (click)="onNextStep(5); removeLocalStorageData()" [disabled]="totalAmount == 0">Confirm</button>
+    <button mat-raised-button (click)="onNextStep(5); removeLocalStorageData()" [disabled]="allItems.length === 0">Confirm</button>
   </div>
 </div>

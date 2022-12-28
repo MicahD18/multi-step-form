@@ -14,13 +14,16 @@ export class SummaryComponent implements OnInit {
 
   totalAmount: number = 0;
 
-  allItems: any;
+  allItems: any = [];
 
   constructor() {}
 
   ngOnInit(): void {
+    console.log(this.allItems.length);
+
+    //? NOTE: Does not work...
+    //TODO: If this.allItems.length > 0, call the calcTotal function()
     this.calcTotal();
-    console.log(this.allItems);
   }
 
   onPrevStep(prevStep: number): void {
@@ -37,7 +40,6 @@ export class SummaryComponent implements OnInit {
     let prices: any[] = [];
 
     this.allItems.map((item: any) => {
-      
       prices.push(item.price);
 
       const initialValue = 0;
@@ -49,6 +51,8 @@ export class SummaryComponent implements OnInit {
 
       this.totalAmount = total;
     });
+
+    console.log(this.allItems);
   }
 
   removeLocalStorageData() {

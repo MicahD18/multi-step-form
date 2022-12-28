@@ -29,7 +29,7 @@
       }"
       *ngFor="let plan of plans"
     >
-      <button (click)="goToPlan(plan.id); emitData(plan.name, plan.monthlyPrice, plan.yearlyPrice, plan.monthlyPlan, plan.yearlyPlan)" class="w-[100%]">
+      <button (click)="goToPlan(plan.id); emitData(plan.name, plan.monthlyPrice, plan.yearlyPrice, plan.monthlyPlan, plan.yearlyPlan)" class="w-[100%]" [disabled]="isMonthly === false && isYearly === false">
         <img
           class="h-[50px] w-[50px]"
           src="{{ plan.iconUrl }}"

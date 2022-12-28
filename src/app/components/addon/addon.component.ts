@@ -69,15 +69,15 @@ export class AddonComponent implements OnInit {
     } else {
       this.addOns.map((_item, i) => {
         if (index === i) {
-          delete this.addOnArray[index];
+          // delete this.addOnArray[index];
 
-          // this.addOnArray.filter((val) => {
-          //   if (val.name !== _item.name) {
-          //     this.addOnArray.splice(index, 1);
-          //   } else {
-          //     this.addOnArray = [];
-          //   }
-          // })
+          this.addOnArray.filter((val) => {
+            if (val.name !== _item.name) {
+              this.addOnArray.splice(index, 1);
+            } else {
+              this.addOnArray = [];
+            }
+          })
 
           this.extras.emit(this.addOnArray);
           console.log(this.addOnArray);
