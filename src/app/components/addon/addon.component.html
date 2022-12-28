@@ -28,6 +28,6 @@
   </div>
 
   <div class="mt-[25px]">
-    <button mat-raised-button (click)="onNextStep(4)" [disabled]="addOnArray.length === 0">Next Step</button>
+    <button mat-raised-button (click)="onNextStep(4); completeStep()" [disabled]="addOnArray.length === 0">Next Step</button>
   </div>
 </div>

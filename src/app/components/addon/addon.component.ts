@@ -42,6 +42,10 @@ export class AddonComponent implements OnInit {
     },
   ];
 
+  isComplete: boolean = false;
+
+  @Input() stepsArray: any;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -63,7 +67,6 @@ export class AddonComponent implements OnInit {
             price: this.monthly === true ? _item.price : _item.yearlyPrice,
           });
           this.extras.emit(this.addOnArray);
-          console.log(this.addOnArray);
         }
       });
     } else {
@@ -80,9 +83,13 @@ export class AddonComponent implements OnInit {
           })
 
           this.extras.emit(this.addOnArray);
-          console.log(this.addOnArray);
         }
       });
     }
+  }
+
+  completeStep() {
+    this.isComplete = true;
+    this.stepsArray[2].isCompleted = true;
   }
 }

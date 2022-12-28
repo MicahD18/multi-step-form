@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Plan } from 'src/app/models/plan.model';
 
 @Component({
@@ -57,6 +57,10 @@ export class PlanComponent implements OnInit {
   isMonthly: boolean = false;
   isYearly: boolean = false;
   setActive: boolean = false;
+
+  isComplete: boolean = false;
+
+  @Input() stepsArray: any;
 
   constructor() {}
 
@@ -119,5 +123,10 @@ export class PlanComponent implements OnInit {
   setYearly() {
     this.isYearly = true;
     this.isMonthly = false;
+  }
+
+  completeStep() {
+    this.isComplete = true;
+    this.stepsArray[1].isCompleted = true;
   }
 }

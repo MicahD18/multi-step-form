@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { filter, map } from 'rxjs';
 import { Step } from '../models/step.model';
 
+
+// TODO: Scroll to bottom of page
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

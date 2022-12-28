@@ -16,14 +16,15 @@ export class SummaryComponent implements OnInit {
 
   allItems: any = [];
 
+  isComplete: boolean = false;
+
+  @Input() stepsArray: any;
+
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.allItems.length);
-
-    //? NOTE: Does not work...
-    //TODO: If this.allItems.length > 0, call the calcTotal function()
     this.calcTotal();
+    this.completeStep();
   }
 
   onPrevStep(prevStep: number): void {
@@ -51,8 +52,11 @@ export class SummaryComponent implements OnInit {
 
       this.totalAmount = total;
     });
+  }
 
-    console.log(this.allItems);
+  completeStep() {
+    this.isComplete = true;
+    this.stepsArray[3].isCompleted = true;
   }
 
   removeLocalStorageData() {

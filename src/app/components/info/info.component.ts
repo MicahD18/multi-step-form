@@ -14,6 +14,10 @@ export class InfoComponent implements OnInit {
 
   @Input() localDraft!: string | null;
 
+  isComplete: boolean = false;
+
+  @Input() stepsArray: any;
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -60,5 +64,11 @@ export class InfoComponent implements OnInit {
 
   onNextStep(nextStep: number): void {
     this.step.emit(nextStep);
+  }
+
+  // TODO: set boolean property to true when the form is valid and clicked
+  completeStep() {
+    this.isComplete = true;
+    this.stepsArray[0].isCompleted = true;
   }
 }

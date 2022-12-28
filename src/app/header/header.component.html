@@ -8,6 +8,7 @@
             'background-color': step.isActive ? 'orange' : 'transparent'
           }"
           class="w-[40px] h-[40px] bg-none border-2 border-white rounded-full text-white text-center leading-9 hover:bg-slate-200 transition duration-300"
+          [disabled]="step.isCompleted === false"
         >
           {{ step.id }}
         </button></mat-card-title
@@ -27,6 +28,7 @@
         *ngIf="currentStep === 1"
         class="flex flex-col justify-center items-center"
         (step)="onNextStep($event)"
+        [stepsArray]="steps"
       ></app-info>
       <app-plan
         *ngIf="currentStep === 2"
@@ -38,6 +40,7 @@
         (monthly)="getMonthly($event)"
         (yearly)="getYearly($event)"
         (checkMonthly)="getCheckMonthly($event)"
+        [stepsArray]="steps"
       ></app-plan>
       <app-addon
         *ngIf="currentStep === 3"
@@ -45,6 +48,7 @@
         (step)="onPrevStep($event)"
         [monthly]="isMonthly"
         (extras)="addExtras($event)"
+        [stepsArray]="steps"
       ></app-addon>
       <app-summary
         *ngIf="currentStep === 4"
@@ -53,6 +57,7 @@
         (step)="onPrevStep($event)"
         [items]="summary"
         [extras]="extrasArray"
+        [stepsArray]="steps"
       ></app-summary>
     </div>
   </div>

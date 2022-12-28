@@ -57,7 +57,7 @@
   <div class="mt-[25px]">
     <button
       mat-raised-button
-      (click)="onNextStep(3)"
+      (click)="onNextStep(3); completeStep()"
       [disabled]="this.isMonthly === false && this.isYearly === false || this.setActive === false"
     >
       Next Step
