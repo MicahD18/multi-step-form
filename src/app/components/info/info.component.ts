@@ -23,6 +23,7 @@ export class InfoComponent implements OnInit {
   ngOnInit(): void {
     this.infoForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+      name2: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
       email: ['', [Validators.required, Validators.email]],
       phone: [
         '',
@@ -52,6 +53,10 @@ export class InfoComponent implements OnInit {
 
   get name() {
     return this.infoForm.get('name');
+  }
+
+  get name2() {
+    return this.infoForm.get('name2');
   }
 
   get email() {

@@ -10,12 +10,12 @@
     [formGroup]="infoForm"
     class="flex flex-col justify-center items-start mt-[50px]"
   >
-    <mat-label class="text-left text-base">Name</mat-label>
+    <mat-label class="text-left text-base">First Name</mat-label>
     <div class="mt-2">
       <input
         matInput
         formControlName="name"
-        placeholder="name"
+        placeholder="first name"
         class="border-2 border-gray border-solid w-[40vw] h-[50px] p-2 focus:outline-none focus:border-indigo-300 text-lg"
       />
     </div>
@@ -23,6 +23,22 @@
       Name is required
     </mat-error>
     <mat-error *ngIf="name?.invalid && name?.value !== ''">
+      Name is invalid
+    </mat-error>
+
+    <mat-label class="text-left text-base mt-5">Last Name</mat-label>
+    <div class="mt-2">
+      <input
+        matInput
+        formControlName="name2"
+        placeholder="last name"
+        class="border-2 border-gray border-solid w-[40vw] h-[50px] p-2 focus:outline-none focus:border-indigo-300 text-lg"
+      />
+    </div>
+    <mat-error *ngIf="name2?.touched && name2?.value === ''">
+      Name is required
+    </mat-error>
+    <mat-error *ngIf="name2?.invalid && name2?.value !== ''">
       Name is invalid
     </mat-error>
 
